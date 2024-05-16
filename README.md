@@ -1,1 +1,1 @@
-Automata Reader^
+Automata Reader
