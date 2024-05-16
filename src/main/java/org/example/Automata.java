@@ -1,6 +1,7 @@
 package org.example;
 
 import Exceptions.WTF_Exception;
+import enums.AType;
 import enums.SType;
 
 import java.util.ArrayList;
@@ -13,12 +14,25 @@ public class Automata {
     private List<State> finalStates;
     private List<State> states;
     private List<Transition> transitions;
+    private AType type;
 
     public Automata() {
         this.alphabets = new ArrayList<>();
         this.finalStates = new ArrayList<>();
         this.states = new ArrayList<>();
         this.transitions = new ArrayList<>();
+    }
+
+    public List<Transition> getTransitions() {
+        return transitions;
+    }
+
+    public AType getType() {
+        return type;
+    }
+
+    public void setType(AType type) {
+        this.type = type;
     }
 
     public List<State> getStates() {
