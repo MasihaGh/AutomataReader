@@ -15,5 +15,6 @@ public class Main {
             throw new RuntimeException(e);
         }
 
+        System.out.println(Util.isAccepted(automata, "abb"));
     }
 }
