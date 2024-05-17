@@ -23,4 +23,9 @@ public class State {
     public void setType(SType type) {
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        return "(" + tag + ", " + type + ")";
+    }
 }

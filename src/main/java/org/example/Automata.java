@@ -76,10 +76,12 @@ public class Automata {
         for (State s : getStates()) {
             if (s.getTag().equals(sourceName))
                 source = s;
-            else if (s.getTag().equals(destinationName))
+
+            if (s.getTag().equals(destinationName))
                 destination = s;
-            else throw new WTF_Exception("WTF!\nStates are not found!");
         }
+        if (source == null || destination == null)
+            throw new WTF_Exception("WTF!\nStates are not found!");
 
         this.transitions.add(new Transition(source, destination, label));
     }

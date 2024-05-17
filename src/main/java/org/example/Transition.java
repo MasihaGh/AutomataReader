@@ -11,4 +11,9 @@ public class Transition {
         this.destination = destination;
         this.label = label;
     }
+
+    @Override
+    public String toString() {
+        return "(" + source.getTag() + " ---" + label + "--> " + destination.getTag() + ")";
+    }
 }

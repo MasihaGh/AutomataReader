@@ -12,7 +12,7 @@ import java.util.List;
 
 public class AutomataParser {
 
-    public Automata readAutomata(String filePath) throws IOException, ParserConfigurationException, SAXException, WTF_Exception {
+    public static Automata readAutomata(String filePath) throws IOException, ParserConfigurationException, SAXException, WTF_Exception {
         File xmlFile = new File(filePath);
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -36,19 +36,19 @@ public class AutomataParser {
         return automata;
     }
 
-    private void parseAlphabets(Document doc, List<Character> alphabets) {
+    private static void parseAlphabets(Document doc, List<Character> alphabets) {
         NodeList alphabetList = doc.getElementsByTagName("alphabet");
         for (int i = 0; i < alphabetList.getLength(); i++) {
             Node alphabetNode = alphabetList.item(i);
             if (alphabetNode.getNodeType() == Node.ELEMENT_NODE) {
                 Element alphabetElement = (Element) alphabetNode;
-                char alphabet = alphabetElement.getTextContent().charAt(0);
+                char alphabet = alphabetElement.getAttribute("letter").charAt(0);
                 alphabets.add(alphabet);
             }
         }
     }
 
-    private void parseStates(Document doc, List<State> states) {
+    private static void parseStates(Document doc, List<State> states) {
         NodeList stateList = doc.getElementsByTagName("state");
         for (int i = 0; i < stateList.getLength(); i++) {
             Node stateNode = stateList.item(i);
@@ -59,7 +59,7 @@ public class AutomataParser {
         }
     }
 
-    private void parseInitialState(Document doc, Automata automata) {
+    private static void parseInitialState(Document doc, Automata automata) {
         NodeList initialStateList = doc.getElementsByTagName("initailState");
         for (int i = 0; i < initialStateList.getLength(); i++) {
             Node initialStateNode = initialStateList.item(i);
@@ -70,7 +70,7 @@ public class AutomataParser {
         }
     }
 
-    private void parseFinalStates(Document doc, Automata automata) {
+    private static void parseFinalStates(Document doc, Automata automata) {
         NodeList finalStateList = doc.getElementsByTagName("finalstate");
         for (int i = 0; i < finalStateList.getLength(); i++) {
             Node finalStateNode = finalStateList.item(i);
@@ -81,7 +81,7 @@ public class AutomataParser {
         }
     }
 
-    private void parseTransitions(Document doc, Automata automata) throws WTF_Exception {
+    private static void parseTransitions(Document doc, Automata automata) throws WTF_Exception {
         NodeList transitionList = doc.getElementsByTagName("transition");
         for (int i = 0; i < transitionList.getLength(); i++) {
             Node transitionNode = transitionList.item(i);
