@@ -17,7 +17,5 @@
         <transition source="q0" destination="q0" label="a"/>
         <transition source="q0" destination="q1" label="b"/>
         <transition source="q1" destination="q1" label="b"/>
-
-
     </Transitions>
 </Automata>
