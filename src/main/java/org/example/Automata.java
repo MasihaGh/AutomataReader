@@ -93,4 +93,12 @@ public class Automata {
         }
         return -1;
     }
+
+    public Transition findTransition(Character ch, State st) {
+        for (Transition tmp : getTransitions()) {
+            if (tmp.getLabel() == ch && tmp.getSource().getTag().equals(st.getTag()))
+                return tmp;
+        }
+        return null;
+    }
 }
