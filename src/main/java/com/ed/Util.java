@@ -1,4 +1,4 @@
-package org.example;
+package com.ed;
 
 import enums.SType;
 
